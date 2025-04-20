@@ -289,7 +289,7 @@ const RecordPage = () => {
       <div className="flex justify-center">
         <Button
           onClick={uploadAudio}
-          className="bg-blue-600 hover:bg-blue-700 px-8 py-2 text-lg"
+          className="bg-blue-600 hover:bg-blue-700 px-8 py-2 text-lg text-white"
           disabled={isUploading || (!audioBlob && !selectedFile)}
         >
           {isUploading ? (
@@ -307,7 +307,7 @@ const RecordPage = () => {
         <div className="mt-6">
           <p className="font-bold text-sm text-slate-600 mb-2">
             {uploadProgress < 100
-              ? `${uploadProgress}%`
+              ? `${Number(uploadProgress)}%`
               : "Complete! Redirecting..."}
           </p>
           <Progress value={uploadProgress} className="h-5 my-3" />

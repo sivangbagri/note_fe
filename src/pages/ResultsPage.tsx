@@ -46,7 +46,7 @@ const ResultsPage = () => {
 
       toast({
         title: "PDF Export Started",
-        description: "Your PDF is being generated and will download shortly.",
+        description: "Your PDF with sentimental analysis is being generated and will download shortly.",
       });
     } catch (err) {
       console.error("Error exporting PDF:", err);
@@ -147,12 +147,15 @@ const ResultsPage = () => {
                 Key Points
               </h3>
               <ul className="space-y-2">
-                {resultData.summary.key_points.map((item, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="text-blue-600 mr-2">→</span>
-                    <span className="text-slate-700">{item}</span>
-                  </li>
-                ))}
+                {resultData.summary.key_points?.map(
+                  (item, index) =>
+                    item && (
+                      <li key={index} className="flex items-start">
+                        <span className="text-blue-600 mr-2">→</span>
+                        <span className="text-slate-700">{item}</span>
+                      </li>
+                    )
+                )}
               </ul>
             </Card>
           </div>
@@ -196,14 +199,20 @@ const ResultsPage = () => {
 
       <div className="flex justify-between">
         <Link to="/record">
-          <Button variant="outline" className="flex items-center cursor-pointer">
+          <Button
+            variant="outline"
+            className="flex items-center cursor-pointer"
+          >
             <Mic className="h-4 w-4 mr-2" />
             Record Another
           </Button>
         </Link>
 
         <Link to="/search">
-          <Button variant="outline" className="flex items-center cursor-pointer">
+          <Button
+            variant="outline"
+            className="flex items-center cursor-pointer"
+          >
             <Search className="h-4 w-4 mr-2" />
             Search Transcripts
           </Button>

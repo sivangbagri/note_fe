@@ -42,8 +42,9 @@ export const api = {
       const errorData = await response.json();
       throw new Error(errorData.detail || "Failed to upload audio");
     }
-
-    return response.json();
+    const data = await response.json();
+    console.log("response\n", data);
+    return data;
   },
 
   /**
